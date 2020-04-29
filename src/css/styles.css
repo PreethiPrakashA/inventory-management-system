@@ -1,0 +1,60 @@
+body{
+  text-align: center;
+}
+
+h1{
+  padding: 3rem 0;
+}
+
+.odd-sec{
+  /* color: #21243d; */
+  background-color: #88e1f2;
+  padding: 7% 15%;
+
+}
+
+.even-sec{
+  color: #ffd082;
+  padding: 7% 15%;
+}
+/* navigation bar */
+
+.myIcon{
+  color: #21243d;
+  padding-right: 10px;
+}
+
+
+/* navigation bar  */
+.navbar{
+  padding:0 0 1.5rem;
+}
+.navbar-brand{
+  font-family: "Oswald";
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #21243d;
+}
+.nav-item{
+  padding: 0 18px;
+
+}
+
+.nav-link{
+  font-family: "Oswald";
+  color: #21243d;
+}
+
+
+.title-img{
+  max-width:100%;
+  height:auto;
+
+}
+.title-desc-container{
+  align-content: center;
+  text-align: right;
+  font-family: "Oswald";
+  color: #123272;
+  font-size:3rem;
+}
