@@ -1,4 +1,10 @@
 <?php
+    session_start();
+    if(isset($_SESSION['logged_in'])){
+        header("Location: dashboard.php");
+    }
+    //Remainder:header and echo
+
 /*  $name = $_POST['name'];
 $passw = $_POST['pass'];
 
@@ -35,10 +41,7 @@ echo 'OK';
     }
     echo "Connected successfully";
 
-
     //  $mysqlconn->query("insert into  users values(1,'Preeps','abc','Preethi','Prakash')");
-
-
     //$result =  $mysqlconn->query("SELECT * FROM inventory  WHERE username = '$_POST['name']' AND password =  '$_POST['pass']'");
     $name = $_POST['name'];
     $pass = $_POST['pass'];
@@ -48,18 +51,16 @@ echo 'OK';
     if( $result->num_rows > 0 ) {
     //=1 is fine too
 
-        $row = $result->fetch_assoc();
-        echo "Permission granted";
-        echo $row['user_id'];
-        echo $row['username'];
-        echo $row['firstname'];
-        echo $row['lastname'];
 
+        $row = $result->fetch_assoc();
+        $_SESSION['logged_in'] = (int)$row['role'];
+        if(isset($_SESSION['logged_in'])){
+            header("Location: dashboard.php");
+        }//when a user is logged in,he will be redirected to dashboard..
     }
     else {
 
         echo "Permission denied";
-
     }
     //to execute query-it returns a result by which we cud know if the query
     //was sucessful .
