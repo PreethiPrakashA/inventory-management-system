@@ -1,6 +1,27 @@
 <!DOCTYPE html>
+<?php
+    session_start();
+    if(!isset($_SESSION['logged_in'])) {
+        header("Location : index.php");
+    }
+    elseif(($_SESSION['logged_in'] !== 0) && ($_SESSION['logged_in'] !== 1)) {
+        die("ERROR : You do not have sufficient
+         privelege to access this");
+    }
+
+?>
+
 <html lang="en" dir="ltr">
   <head>
+      <style>
+       body {
+         background-color: #aeefec;
+       }
+       a:active {
+         color: #ff926b;
+       }
+     </style>
+
     <meta charset="utf-8">
     <title></title>
   </head>
@@ -24,7 +45,7 @@
             while( ($row = $res->fetch_assoc()) != FALSE) {
                   echo  '<option>' .  $row['typeid'] . '-' . $row['typename'] . ' </option>' ;
             }
-            
+
             $res->close();
             $conn->close();
 
